@@ -22,7 +22,7 @@ class JFlowLayout extends JFrame{
 		
 		Container con = getContentPane();
 		con.setLayout(new FlowLayout(FlowLayout.RIGHT, 50, 10));
-		//50 : 콘트롤끼리의 가로 방향 간격 10: 세로 방향 간격
+		//50 : 콘트롤끼리의 가로 방향 간격	||	 10: 세로 방향 간격
 		// FlowLayout.RIGHT, FlowLayout.LEFT :정렬방식
 		
 		for(int i = 1; i<=15; i++)
