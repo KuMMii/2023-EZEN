@@ -1,0 +1,34 @@
+    #firstheader{position: relative; width: 100%; height:65px; border-bottom:1px solid silver;}
+        #firstheader .view{position: relative; width: 1100px; height: 65px; margin: 0 auto; border: 1px solid black;}
+            #firstheader .view .left{position: relative; width: 450px; height: 65px; margin: 0 auto; float: left; border: 1px dotted black;}
+                #firstheader .view .left ul{list-style: none; padding: 0; margin: 0; display: inline-block;}
+                    #firstheader .view .left ul li{float: left; margin-right: 20px; color: grey;}
+                    #firstheader .view .left ul li:nth-child(2){ color:black; font-weight: bold; font-size: 110%; }
+
+                img{vertical-align: middle;}
+
+            #firstheader .view .right{position: relative; width: 300px; height: 65px; text-align:right; float: right; border: 1px dotted black;}
+            #firstheader .view .right ul{list-style: none; padding: 0; margin: 0; display: inline-block;}
+            #firstheader .view .right ul li{float: right; margin-left: 20px; color: grey;}
+
+    #secondheader{position: relative; width: 100%; height:75px; border-bottom:1px solid silver;}
+        #secondheader .view{position: relative; width: 1100px; height: 75px; margin: 0 auto; border: 1px solid red;}
+            #secondheader .view .left{position: relative; width: 800px; height: 75px; line-height: 75px; text-align: left; float: left; border: 1px dotted blue;}
+            #secondheader .view .left ul{list-style: none; padding: 0; margin: 0; display: inline-block;}
+            #secondheader .view .left ul li{float:left; margin-right:30px; color:black; font-family: Verdana; font-weight: bold;  font-size: 120%;}
+
+    #third{position: relative; width:100%; height:560px; border-bottom:1px solid silver;}        
+    #third .view{position: relative; width: 1220px; height: 560px; margin: 0 auto; border: 1px solid gray;}
+
+    .lbutton{position: relative; float: left; width: 58px; height: 560px; border: 1px solid black;}
+    .rbutton{position: relative; float: right; width: 58px; height: 560px; border: 1px solid black;}
+    .newsbox{position: relative; width: 1100px; height: 560px; margin: 0 auto; background-color: pink;}
+
+    .mainbox{position: relative; width: 272px; height: 280px; margin-right: 4px; float: left;}
+    .mainbox:nth-child(4){margin-right: 0;}
+    .mainbox:last-child{margin-right: 0;}
+    .image{position: relative; width: 272px; height: 150px;}
+    .news{position: relative;  width: 252px; height: 110px; color: grey; margin: 10px 10px; border: 1px solid black;}
+
+    .lbutton .button{ position:absolute; width:50px; height:50px; border-radius: 50%; top:250px; left:0px; background-image: url( ../images/ico_movie_171115.png ); background-position:-60px -460px;  border:1px solid black;}
+    .rbutton .button{position:absolute; width:50px; height:50px; float:left; top:250px; right:0px; background-image:url(../images/ico_movie_171115.png); background-position:0px -460px; border-radius: 50%; border:1px solid black;}
