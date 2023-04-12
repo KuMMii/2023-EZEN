@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <!-- 버튼 이미지와 큰 이미지를 적절히 배치하고 hover를 이용해 버튼이미지에 마우스를 올리면 큰이미지가 화면상에 나타나게 하기 -->
+    <style type="text/css">
+        .view{position: relative; margin:0 auto; width: 600px; height: 600px; border: 1px solid black; overflow: hidden;}
+        .bigimg{position: relative; width: 600px; height: 400px; margin: 0 auto; text-align: center; font-size: large; line-height: 400px; border: 1px dotted red;}
+        .box2{position: absolute; width: 600px; height: 400px; right: 600px; top: 0; transition: 1s;}
+        .box1{width: 198px; height: 198px; float:left; border-radius: 50%; overflow: hidden; border: 1px solid black;}
+
+         #btn_img1:hover~#view_img1{transform: translateX(600px);}
+         #btn_img2:hover~#view_img2{transform: translateX(600px);}
+         #btn_img3:hover~#view_img3{transform: translateX(600px);}
+    </style>
+</head>
+<body>
+<div class="view">
+    <div class="bigimg">이미지에 마우스를 올리면 큰 이미지를 볼 수 있습니다.</div>
+    <div class="box1" id="btn_img1"><img src="images/prod1.jpg" width="198" height="198"></div>
+    <div class="box1" id="btn_img2"><img src="images/prod2.jpg" width="198" height="198"></div>
+    <div class="box1" id="btn_img3"><img src="images/prod3.jpg" width="198" height="198"></div>
+    <div class="box2" id="view_img1"><img src="images/prod1.jpg" width="600" height="400"></div>
+    <div class="box2" id="view_img2"><img src="images/prod2.jpg" width="600" height="400"></div>
+    <div class="box2" id="view_img3"><img src="images/prod3.jpg" width="600" height="400"></div>
+</div>
+   
+    
+</body>
+</html>
