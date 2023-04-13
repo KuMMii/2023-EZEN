@@ -144,3 +144,5 @@ drop table orders2 purge; --purge생략가능
 
 
 
+
+
