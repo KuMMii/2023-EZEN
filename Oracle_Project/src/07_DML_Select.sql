@@ -127,6 +127,17 @@ select*from emp where DEPTNO<>10;
 select*from emp where SAL>=1000and sal<=3000;
 select*from emp where SAL between 1000 and 3000;
 
+--특정 필드값이 널인 레코드 또는 널이 아닌 레코드
+select*from imp where comm is null;
+select*from imp where comm is not null;
+
+--사원의 연봉 출력
+select deptno, ename, sal*12+comm as 연봉 from emp;
+--comm값이  null이면 오류 발생. 밑이 해결법
+select deptno, ename, nvl(comm,500 )+sal*12as 연봉 from emp;
+--nvl함수는 널값을 다른 값으로 바꿔주는 내장함수로서 다음 단원에서 다른 함수들과 함께 학습함
+
+select*from emp;
 
 
 
