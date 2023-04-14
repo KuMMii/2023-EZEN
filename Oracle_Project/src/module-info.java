@@ -6,4 +6,5 @@
  *
  */
 module Oracle_Project {
+	requires java.sql;
 }
