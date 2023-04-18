@@ -69,19 +69,21 @@ public class MemberMain {
 		System.out.print("Type the birthday(YYYY-MM-DD) : ");
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
 		java.util.Date d = null;
+		String temp;
 		while(true) {
-			
-		try {
-			d =sdf.parse(sc.nextLine());
-			break;
-		} catch (ParseException e) {
-			System.out.println("Type again(e.g. 2023-12-31) : ");
+			try {
+				temp=sc.nextLine();
+				d =sdf.parse(temp);
+				break;
+			} catch (ParseException e) {
+				System.out.println("Type again(e.g. 2023-12-31) : ");
+			}
 		}
-		}
-		//java.util.Date 를 java.sql.Date로 변환
-		//d.getTime()을 java.sql.Date의 생성자의 전달인수로 넣기
-		java.sql.Date birth = new java.sql.Date(d.getTime());
-		mdto.setBirth(birth);
+		mdto.setBirth(temp);
+//		//java.util.Date 를 java.sql.Date로 변환
+//		//d.getTime()을 java.sql.Date의 생성자의 전달인수로 넣기
+//		java.sql.Date birth = new java.sql.Date(d.getTime());
+//		mdto.setBirth(birth);
 
 		//나이는 입력받지 않고 계산
 		Calendar c = Calendar.getInstance();
@@ -153,8 +155,10 @@ public class MemberMain {
 				temp=sc.nextLine();
 				if(temp.equals("") ) break; //수정을 위해 입력한 날짜가 없다면
 				d =sdf.parse(temp); //String ->java.util.Date 변환
-				birth = new java.sql.Date(d.getTime()); //java.sql.Date로 변환
-				mdto.setBirth(birth); //입력받은 날짜를 Dto에 저장
+				
+				mdto.setBirth(temp);
+//				birth = new java.sql.Date(d.getTime()); //java.sql.Date로 변환
+//				mdto.setBirth(birth); //입력받은 날짜를 Dto에 저장
 				break;
 			} catch (ParseException e) {
 				System.out.println("Type again(e.g. 2023-12-31) : ");

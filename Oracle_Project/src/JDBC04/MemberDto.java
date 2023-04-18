@@ -7,7 +7,8 @@ public class MemberDto {
 	private int membernum;
 	private String name;
 	private String phone;
-	private Date birth;
+//	private Date birth;
+	private String birth;
 	private int bpoint;
 	private String gender;
 	private int age;
@@ -30,10 +31,10 @@ public class MemberDto {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	public Date getBirth() {
+	public String getBirth() {
 		return birth;
 	}
-	public void setBirth(Date birth) {
+	public void setBirth(String birth) {
 		this.birth = birth;
 	}
 	public int getBpoint() {

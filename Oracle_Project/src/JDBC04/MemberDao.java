@@ -42,7 +42,9 @@ public class MemberDao {
 			public ArrayList<MemberDto> selectMember() {
 				ArrayList<MemberDto> list =new ArrayList<MemberDto>();
 				con=getConnection();
-				String sql="select * from memberlist order by membernum asc ";
+				String sql="select to_char(birth, 'YYYY-MM-DD') as birthStr, "
+						+ "membernum, name, phone, bpoint, gender, age  "
+						+ "from memberlist order by membernum asc ";
 				
 				try {
 					pstmt=con.prepareStatement(sql);
@@ -52,7 +54,7 @@ public class MemberDao {
 						MemberDto mdto= new MemberDto();
 						mdto.setMembernum(rs.getInt("membernum"));
 						mdto.setName(rs.getString("name"));
-						mdto.setBirth(rs.getDate("birth"));
+						mdto.setBirth(rs.getString("birthStr"));
 						mdto.setPhone(rs.getString("phone"));
 						mdto.setGender(rs.getString("gender"));
 						mdto.setBpoint(rs.getInt("bpoint"));
@@ -77,12 +79,13 @@ public class MemberDao {
 				int result=0;
 				
 				con=getConnection();
-				String sql="insert into memberlist(membernum, name, birth, phone, gender,bpoint, age) values(member_seq.nextVal, ?, ?,?,?,?,?)";
+				String sql="insert into memberlist(membernum, name, birth, phone, gender,bpoint, age) "
+						+ "values(member_seq.nextVal, ?, to_date( ''||?||'', 'YYYY-MM-DD'), ?,?,?,?)";
 				
 				try {
 					pstmt=con.prepareStatement(sql);
 					pstmt.setString(1, mdto.getName());
-					pstmt.setDate(2, mdto.getBirth());
+					pstmt.setString(2, mdto.getBirth());
 					pstmt.setString(3, mdto.getPhone());
 					pstmt.setString(4, mdto.getGender());
 					pstmt.setInt(5, mdto.getBpoint());
@@ -102,7 +105,8 @@ public class MemberDao {
 				MemberDto mdto=null;
 				
 				con=getConnection();
-				String sql = "select *from memberlist where membernum =?";
+				String sql = "select to_char(birth, 'YYYY-MM-DD') as birthStr, memberlist.*"
+						+ " from memberlist where membernum =?";
 				try {
 					pstmt = con.prepareStatement(sql);
 					pstmt.setInt(1, membernum);
@@ -111,7 +115,7 @@ public class MemberDao {
 						mdto=new MemberDto();
 						mdto.setMembernum(rs.getInt("membernum"));
 						mdto.setName(rs.getString("name"));
-						mdto.setBirth(rs.getDate("birth"));
+						mdto.setBirth(rs.getString("birth"));
 						mdto.setPhone(rs.getString("phone"));
 						mdto.setGender(rs.getString("gender"));
 						mdto.setBpoint(rs.getInt("bpoint"));
@@ -127,12 +131,13 @@ public class MemberDao {
 			public int updateMember(MemberDto mdto) {
 				int result=0;
 				con= getConnection();
-				String sql= "update memberlist set name=?, phone=?, birth=?, bpoint=?, gender=?, age=? where membernum=?";
+				String sql= "update memberlist set name=?, phone=?, birth=to_date( ''||?||'', 'YYYY-MM-DD'), "
+						+ "bpoint=?, gender=?, age=? where membernum=?";
 				try {
 					pstmt=con.prepareStatement(sql);
 					pstmt.setString(1, mdto.getName());
 					pstmt.setString(2, mdto.getPhone());
-					pstmt.setDate(3, mdto.getBirth());
+					pstmt.setString(3, mdto.getBirth());
 					pstmt.setInt(4, mdto.getBpoint());
 					pstmt.setString(5, mdto.getGender());
 					pstmt.setInt(6, mdto.getAge());
