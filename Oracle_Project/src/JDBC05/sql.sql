@@ -9,5 +9,4 @@ select * from booklist;
 select * from memberlist;
 select * from rentlist;
 
-
 update rentlist set discount =200 where numseq=11;
