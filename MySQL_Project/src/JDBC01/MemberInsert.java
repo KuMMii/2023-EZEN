@@ -6,6 +6,7 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Calendar;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -95,9 +96,21 @@ class InsertForm extends JFrame implements ActionListener{
 		mdto.setBirth(birth.getText());
 		mdto.setGender(gender.getText());
 		
-		MemberDao mdao = MemberDao.getInstance();
+		Calendar today = Calendar.getInstance();
+		int todayYear = today.get(Calendar.YEAR);
+		int birthYear=Integer.parseInt(birth.getText().substring(0, 4));
+		mdto.setAge(todayYear-birthYear);
 		
-		int result = mdao.insertRent(mdto);
+		MemberDao mdao = MemberDao.getInstance();
+		int result = mdao.insertMember(mdto);
+
+		
+		
+		
+		
+		
+		
+		
 		if(result==1) {
 			JOptionPane.showMessageDialog(null, "Success");
 			name.setText(""); phone.setText(""); birth.setText("");  gender.setText("");
