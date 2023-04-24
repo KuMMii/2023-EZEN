@@ -19,13 +19,15 @@
 		<input type="text" id="name" name="name" value=""> <br>
 		
 		<label for="id">ID</label><span style="color:red;">*</span>
-		<input type="text" id="id" name="id" value=""> <br>
+		hong<input type="hidden" id="id" name="id" value="hong"> <br><!-- 수정못하게 지정해놓고 내용 전달은 되게 하는거 -->
 		
 		<label for="pwd">PWD</label><span style="color:red;">*</span>
 		<input type="password" id="pwd" name="pwd" value=""> <br>
 		
 		<label for="pwd_re">PWD_RE</label><span style="color:red;">*</span>
 		<input type="password" id="pwd_re" name="pwd_re" value=""> <br>
+		
+		<input type="hidden" name="useritem" value="010-2344-4566">
 		
 		<input type="submit" value="Join">		 
 		<input type="reset" value="Reset">		
