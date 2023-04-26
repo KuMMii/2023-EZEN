@@ -42,8 +42,8 @@
 				out.print("<td>"+rs.getString("id") +"</td>");
 				out.print("<td>"+rs.getString("pwd") +"</td>");
 				out.print("<td>"+rs.getString("phone") +"</td>");
-				out.print("<td align='center'><a href='#'>수정</a></td>");			
-				out.print("<td align='center'><a href='#'>삭제</a></td>");			
+				out.print("<td align='center'><a href='updateForm.jsp?userid="+rs.getString("id")+"'>수정</a></td>");			
+				out.print("<td align='center'><a href='delete.jsp?userid="+rs.getString("id")+"'>삭제</a></td>");			
 			out.print("</tr>");
 		}
 		

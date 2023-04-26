@@ -22,7 +22,6 @@
 	
 	<form method="get" action="">
 		<input type=submit value="로그아웃">
-		<!-- 074_Logout_do.jsp에서 로그인정보에 해당하는 세션값을 지우고 로그인창으로 이동하게 코딩하기 -->
 	</form>
 <%
 	}
