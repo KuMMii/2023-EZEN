@@ -24,9 +24,9 @@
 	}
 	
 	function joinCheck(){
-		if(document.frm.name.value=""){
+		if(document.frm.name.value==""){
 			alert("이름은 필수입력 사항입니다.");
-			document.frm.name.focus();
+			document.frm.name.focus(); //focus는 커서 깜빡이게 하는거!
 			return false;
 		}else if(document.frm.userid.value.lenght==0){
 			alert("아이디는 필수입력 사항입니다.")
