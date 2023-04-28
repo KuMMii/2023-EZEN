@@ -1,6 +1,7 @@
 package com.ezen.member;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -39,7 +40,7 @@ public class LoginServlet extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		if(session.getAttribute("loginUser")!=null) {
-			url="main.jsp";
+			url="main.do";
 		}
 		
 		RequestDispatcher rd= request.getRequestDispatcher(url);
@@ -76,13 +77,23 @@ public class LoginServlet extends HttpServlet {
 			request.setAttribute("message", "비밀번호가 맞지 않습니다.");
 		}else if(mdto.getPwd().equals(pwd)) {
 			//여기만 정상로그인
-			url="member/main.jsp";
+			url="main.do";
+
 			//로그인한 사람의 정보(mdto)를 session에 저장함
 			//session은 각 페이지에 있는 request 객체에서 얻어 쓸 수 있는데, jsp페이지에서는 그 페이지가  갖고 있는
 			//request 안의 session을 별도 작업없이 그냥 사용해도 되지만, 서블릿에서는 request를 전달인수로 받아서
 			//매개변수에 저장된 형태로 쓰기 때문에 별도로 추출하는 동작이 필요함.
 			HttpSession session = request.getSession();
 			session.setAttribute("loginUser",mdto);
+			
+			//회원정보 조회 후 조회내용을  request에 담아서 갈 예정인데
+//			ArrayList<MemberDto>list = mdao.selectMember();
+//			request.setAttribute("memberList", list);
+			
+			//그러나 main.jsp로 가는 경로가 여기뿐 아니라 다른 곳에 있을 수도 있고,
+			//필요한 코드가 위에 두줄 외 더 많을 수도 있으므로 
+			//main.do를 만들어서 그곳을 거쳐서 main.jsp로 이동하게 함.
+			
 		}else {
 			//무슨이유에서인지 모르겠지만 로그인이 안되는 경우
 			request.setAttribute("message", "로그인이 안되는데 이유를 모르겠네용. 관리자에게 문의하세요.");

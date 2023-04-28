@@ -1,0 +1,18 @@
+package com.ezen.board.controller;
+
+import com.ezen.board.controller.action.Action;
+import com.ezen.board.controller.action.LoginFormAction;
+
+public class ActionFactory {
+	
+	private ActionFactory() {}
+	private static ActionFactory itc=new ActionFactory();
+	public static ActionFactory getInstance() {return itc;}
+	public Action getAction(String command) {
+		Action ac=null;
+		
+		if(command.equals("loginForm")) {ac=new LoginFormAction();}
+		
+		return ac;
+	}
+}

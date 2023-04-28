@@ -12,6 +12,6 @@ INSERT INTO member VALUES('이소미', 'somi', '1234','gmd@naver.com', '010-2323
 INSERT INTO member VALUES('전상오', 'sang', '1234','h12@naver.com', '010-5555-6666',0);
 INSERT INTO member VALUES('김빛나', 'light', '1234','yoon1@daum.net', '010-2222-3333',0);
 
-delete from member;
+delete from member where name='7777';
 
 select * from member;

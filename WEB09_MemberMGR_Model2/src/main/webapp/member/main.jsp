@@ -10,7 +10,7 @@
 	function withdrawConfirm(){
 		var bool=confirm('진짜진짜 탈퇴하시나요? 진짜로?');
 		if(bool){
-			location.href="withdraw.do";
+			location.href="member.do?command=delete";
 		}else{
 			return;
 		}
@@ -22,7 +22,7 @@
 <body>
 <%
 	if(session.getAttribute("loginUser")==null){
-		response.sendRedirect("login.do");
+		response.sendRedirect("member.do");
 	}
 %>
 
@@ -37,8 +37,8 @@
 	<tr><td>전화번호 : ${loginUser.phone}</td></tr>
 	<tr>
 		<td>
-			<input type="button" value="로그아웃" onClick="location.href='logout.do'"/>
-			<input type="button" value="회원정보변경" onClick="location.href='update.do<%-- ?userid=${loginUser.userid} 굳이 안해도됨. session값이 있어서 서블릿에 넘어가도 정보 저장돼있음--%>'"/>
+			<input type="button" value="로그아웃" onClick="location.href='member.do?command=logout'"/>
+			<input type="button" value="회원정보변경" onClick="location.href='member.do?command=updateForm'"/>
 			<input type="button" value="회원 탈퇴" onClick="withdrawConfirm();"/>
 		</td>
 	</tr>
@@ -73,7 +73,7 @@
 						<c:when test="${member.userid==loginUser.userid}">&nbsp;</c:when>
 						<c:otherwise>
 							<input type="button" value="변경" 
-							onClick="location.href='editadmin.do?userid=${member.userid}&admin=${member.admin}'"/>
+							onClick="location.href='member.do?command=editadmin&userid=${member.userid}&admin=${member.admin}'"/>
 						</c:otherwise>
 					</c:choose>
 				</td>

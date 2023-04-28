@@ -19,7 +19,7 @@
 		//서블릿을 호출하고 포워딩된 페이지가 팝업창에 열릴 예정
 		//그래서 첫번째 요소는 서블릿의 이름을 써줌
 		//서블릿 호출시 파라미터를 아래와 같이 호출되는 주소 뒤에 ?함께 전달할 수 있음
-		window.open('idcheck.do?userid='+inputid ,'id-check',opt);
+		window.open('member.do?command=idcheck&userid='+inputid ,'id-check',opt);
 		
 	}
 	
@@ -53,7 +53,8 @@
 <body>
 
 <h2>회원 가입</h2>'*'표시 항목은 필수 입력 항목입니다.
-	<form method="post" action="join.do" name="frm">
+	<form method="post" action="member.do" name="frm">
+	<input type="hidden" name="command" value="join"/>
 	<table>
 		<tr><td>이름</td><td><input type="text" name="name" size="20">&nbsp;*</td></tr>
 		<tr><td>아이디</td><td><input type="text" name="userid" size="20">&nbsp;*
