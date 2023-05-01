@@ -19,9 +19,13 @@ insert into board(num,userid, email, pass, title, content) values(board_seq.next
 insert into board(num,userid, email, pass, title, content) values(board_seq.nextVal, 'bears', 'doosan@naver.com','1234','양찬열,,','잘생김');
 insert into board(num,userid, email, pass, title, content) values(board_seq.nextVal, 'eu', 'eu@eu.com','1234','유럽여행','유럽여행 다시 보내줘~!~!');
 insert into board(num,userid, email, pass, title, content) values(board_seq.nextVal, 'trip', 'trip@naver.com','1234','여행가고싶다진짜로','제발 로또당첨 연금복권당첨 스피또2000당첨 스피또1000당첨되게 해주세요 제발요');
+insert into board(num,userid, email, pass, title, content) values(board_seq.nextVal, 'bag', 'bag@naver.com','1234','칼하트백팩사야하는데','어디서 사지????뭐사지???');
+insert into board(num,userid, email, pass, title, content) values(board_seq.nextVal, 'lunch', 'lunch@naver.com','1234','점메추','오늘 점심 머먹지');
 
 select * from board;
+select * from member;
 
+commit
 
 
 create table reply(
