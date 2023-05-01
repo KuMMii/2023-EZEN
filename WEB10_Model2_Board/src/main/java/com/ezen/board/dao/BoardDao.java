@@ -46,4 +46,50 @@ public class BoardDao {
 		return list;
 	}
 
+	public void insertBoard(BoardDto bdto) {
+		con=Dbman.getConnection();
+		String sql="insert into board(num, userid, pass, title,email, content) values(board_seq.nextVal,?,?,?,?,?)";
+		
+		try {
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, bdto.getUserid());
+			pstmt.setString(2, bdto.getPass());
+			pstmt.setString(3, bdto.getTitle());
+			pstmt.setString(4, bdto.getEmail());
+			pstmt.setString(5, bdto.getContent());
+			pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {Dbman.close(con, pstmt, rs);}
+		
+	}
+
+	public BoardDto getBoard(int num) {
+		BoardDto bdto=new BoardDto();
+		con=Dbman.getConnection();
+		String sql="select * from board where num=?";
+		
+		try {
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			rs=pstmt.executeQuery();
+			if(rs.next()) {
+				bdto.setNum(rs.getInt("num"));
+				bdto.setPass(rs.getString("pass"));
+				bdto.setUserid(rs.getString("userid"));
+				bdto.setEmail(rs.getString("email"));
+				bdto.setTitle(rs.getString("title"));
+				bdto.setContent(rs.getString("content"));
+				bdto.setReadcount(rs.getInt("readcount"));
+				bdto.setWritedate(rs.getTimestamp("writedate"));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {Dbman.close(con, pstmt, rs);}
+		
+		return bdto;
+	}
+
 }
