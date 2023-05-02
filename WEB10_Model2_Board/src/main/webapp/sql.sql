@@ -49,10 +49,13 @@ select * from reply;
 
 delete from reply;
 
-
-
-
-
+select*from(
+	select*from(
+		select rownum as rn, b.* from(
+			(select * from board order by num desc) b
+		)
+	)where rn>=1
+)where rn<=10;
 
 
 

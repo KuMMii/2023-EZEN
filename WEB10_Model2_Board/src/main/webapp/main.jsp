@@ -41,7 +41,38 @@
 				<td width="100">${board.readcount}</td>
 			</tr>
 		</c:forEach>		
-	</table>
+	</table><br><br>
+	<!-- 여기서부터 페이지 표시 -->
+	<div id="paging" style="margin:0 auto; font-size:110%; font-weight:bold">
+		<!-- 페이지가 클릭될 때마다 이동할 링크 기본경로를 JSTL변수에 저장 -->
+		<c:url var="action" value="board.do?command=main"/>
+		
+		<c:if test="${paging.prev}">
+			<a href="${action}&page=${paging.beginPage-1}">◀</a>&nbsp;
+		</c:if>
+		<!-- 링크되는 주소 ->board.do?command=main&page=?? -->
+		<!-- 맨 왼쪽 페이지(beginPage 보다 1페이지 작은 페이지)로 이동-->
+		
+		<!-- beginPage부터 endPage값까지 페이지 표시 & 해당페이지에 링크 -->
+		<c:forEach begin="${paging.beginPage }" end="${paging.endPage }" var="index">
+			<!-- 현재 페이지와 페이지수가 같으면 []안에, 그렇지 않으면 숫자만 표시 -->
+			<c:choose>
+				<c:when test="${index==paging.page }">[${index}]&nbsp;</c:when>
+				<c:otherwise><a href="${action}&page=${index}">${index}&nbsp;</a></c:otherwise>
+			</c:choose>
+		</c:forEach>
+		
+		<!-- next 표시 : 전달된 paging의 next변수가 true이면 표시, false면 표시하지 않음 -->
+		<c:if test="${paging.next }">
+			<a href="${action }&page=${paging.endPage+1 }">▶</a>&nbsp;
+		</c:if>
+		<!-- 맨 오른쪽 페이지(endPage보다 1페이지 큰 페이지)로 이동 -->
+	</div>
+	
+	
+	
+	
+	
 </div>
 
 </body>

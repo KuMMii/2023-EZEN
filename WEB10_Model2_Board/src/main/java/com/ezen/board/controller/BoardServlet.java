@@ -36,6 +36,11 @@ public class BoardServlet extends HttpServlet {
 		String command = request.getParameter("command");
 		System.out.println(command);
 		
+		if(!command.equals("updateBoardForm")) {
+			HttpSession session=request.getSession();
+			session.removeAttribute("pass");
+		}
+		
 		ActionFactory af = ActionFactory.getInstance();
 		Action ac = af.getAction(command); //command를 전달하고 조립된 객체를 return받기
 		
