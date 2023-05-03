@@ -36,7 +36,7 @@ public class BoardWriteAction implements Action {
 		HttpSession session = request.getSession();
 		ServletContext context=session.getServletContext();
 		
-		String path=context.getRealPath("uploadFile");
+		String path=context.getRealPath("upload");
 		
 		MultipartRequest multi=new MultipartRequest(
 				request, path, 5*1024*1024,"UTF-8", new DefaultFileRenamePolicy() );
@@ -46,14 +46,11 @@ public class BoardWriteAction implements Action {
 		bdto.setTitle(multi.getParameter("title"));
 		bdto.setEmail(multi.getParameter("email"));
 		bdto.setContent(multi.getParameter("content"));
-		bdto.setUserid(multi.getParameter("userid"));
-		bdto.setUserid(multi.getParameter("userid"));
 		bdto.setImgfilename(multi.getFilesystemName("imgfilename"));
 		
 		bdao.insertBoard(bdto);
 		
-		RequestDispatcher dp=request.getRequestDispatcher("board.do?command=main");
-		dp.forward(request, response);
+		response.sendRedirect("board.do?command=main");
 
 	}
 
