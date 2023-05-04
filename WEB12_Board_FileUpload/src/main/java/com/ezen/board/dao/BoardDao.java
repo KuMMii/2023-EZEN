@@ -49,6 +49,7 @@ public class BoardDao {
 				bdto.setContent(rs.getString("content"));
 				bdto.setReadcount(rs.getInt("readcount"));
 				bdto.setWritedate(rs.getTimestamp("writedate"));
+				bdto.setImgfilename(rs.getString("imgfilename"));
 				list.add(bdto);
 			}
 		} catch (SQLException e) {
@@ -111,6 +112,7 @@ public class BoardDao {
 				bdto.setContent(rs.getString("content"));
 				bdto.setReadcount(rs.getInt("readcount"));
 				bdto.setWritedate(rs.getTimestamp("writedate"));
+				bdto.setImgfilename(rs.getString("imgfilename"));
 			}
 
 		} catch (SQLException e) {
@@ -192,7 +194,7 @@ public class BoardDao {
 
 	public void updateBoard(BoardDto bdto) {
 		con=Dbman.getConnection();
-		String sql="update form board set userid=?, pass=?, email=?, title=?, content=?, where num=?";
+		String sql="update board set userid=?, pass=?, email=?, title=?, content=?, imgfilename=? where num=?";
 		
 		try {
 			pstmt=con.prepareStatement(sql);
@@ -201,7 +203,8 @@ public class BoardDao {
 			pstmt.setString(3, bdto.getEmail());
 			pstmt.setString(4, bdto.getTitle());
 			pstmt.setString(5, bdto.getContent());
-			pstmt.setInt(6, bdto.getNum());
+			pstmt.setString(6, bdto.getImgfilename());
+			pstmt.setInt(7, bdto.getNum());
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -258,5 +261,27 @@ public class BoardDao {
 
 
 
+}
+
+	public int getReplyCnt(int num) {
+		int count=0;
+		con=Dbman.getConnection();
+		String sql = "select count(*) as cnt from reply where boardnum=?";
+		
+		try {
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			rs=pstmt.executeQuery();
+			if(rs.next()) {
+				count=rs.getInt("cnt");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {Dbman.close(con, pstmt, rs);
+		
+		return count;
+	}
+		
 }
 }

@@ -33,8 +33,17 @@
 			</tr>
 			<tr>
 				<th>내용</th>
-				<td colspan="3"><pre>${board.content}</pre></td>
-				<!-- pre:br같은 html태그 없이 적은 그대로 나오게하는 태그 -->
+				<td colspan="2"><pre>${board.content}</pre></td>
+				<td align="center">
+					<c:choose>
+						<c:when test="${empty board.imgfilename}">
+							<img src="upload/noname.jpg" height="300">
+						</c:when>
+						<c:otherwise>
+								<img src="upload/${board.imgfilename}" height="300">
+						</c:otherwise>
+					</c:choose>
+				</td>
 			</tr>
 		</table>
 		<br> <input type="button" value="리스트로"

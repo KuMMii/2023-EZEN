@@ -46,7 +46,7 @@ public class BoardWriteAction implements Action {
 		bdto.setTitle(multi.getParameter("title"));
 		bdto.setEmail(multi.getParameter("email"));
 		bdto.setContent(multi.getParameter("content"));
-		bdto.setImgfilename(multi.getFilesystemName("imgfilename"));
+		bdto.setImgfilename(multi.getFilesystemName("uploadFile"));
 		
 		bdao.insertBoard(bdto);
 		

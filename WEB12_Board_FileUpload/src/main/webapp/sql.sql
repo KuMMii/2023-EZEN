@@ -24,7 +24,7 @@ insert into board(num,userid, email, pass, title, content) values(board_seq.next
 insert into board(num,userid, email, pass, title, content) values(board_seq.nextVal, 'bag', 'bag@naver.com','1234','칼하트백팩사야하는데','어디서 사지????뭐사지???');
 insert into board(num,userid, email, pass, title, content) values(board_seq.nextVal, 'lunch', 'lunch@naver.com','1234','점메추','오늘 점심 머먹지');
 
-select * from board;
+select * from board order by num desc;
 select * from member;
 
 commit

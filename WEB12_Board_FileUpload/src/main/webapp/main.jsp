@@ -35,7 +35,15 @@
 		<c:forEach items="${bList}" var="board">
 			<tr align="center">
 				<td width="100">${board.num}</td>
-				<td align="left"><a href="board.do?command=boardView&num=${board.num}">${board.title}</a></td>
+				<td align="left">
+				<a href="board.do?command=boardView&num=${board.num}">${board.title}</a>
+					<c:if test="${board.replycnt>0}">
+						<span style="font-weight:bold; color:blue; font-size:90%;">[${board.replycnt}]</span>
+					</c:if>
+					<c:if test="${not empty board.imgfilename}">
+						<span style="font-size:80%; font-weight:bold; color:red;">[img]</span>
+					</c:if>
+				</td>
 				<td width="100">${board.userid}</td>
 				<td width="200"><fmt:formatDate value="${board.writedate}"/></td>
 				<td width="100">${board.readcount}</td>

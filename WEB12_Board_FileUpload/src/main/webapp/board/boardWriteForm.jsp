@@ -30,6 +30,8 @@
 		<input type="text" size="70" name="title">* 필수</td></tr>
 		<tr><th>내용</th><td><textarea cols="70" rows="15" name="content"></textarea>* 필수</td></tr>
 		<tr><th>이미지</th><td><input type="file" name="uploadFile"></td></tr>
+		<!-- name="uploadFile"하고 boardWriteAction의
+		bdto.setImgfilename(multi.getFilesystemName("uploadFile"));이거하고 이름 맞춰서 써야함 -->
 		
 	</table><br>
 	<input type="submit" value="등록" onClick="return boardCheck()">

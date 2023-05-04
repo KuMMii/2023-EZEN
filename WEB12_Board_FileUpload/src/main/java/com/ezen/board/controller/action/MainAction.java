@@ -38,6 +38,11 @@ public class MainAction implements Action {
 //		ArrayList<BoardDto> list = bdao.selectBoard(paging.getStartNum(),paging.getEndNum());
 		ArrayList<BoardDto> list = bdao.selectBoard(paging);
 		
+		for(BoardDto bdto:list) {
+			int replycnt = bdao.getReplyCnt(bdto.getNum());
+			bdto.setReplycnt(replycnt);
+		}
+		
 		request.setAttribute("bList", list);
 		request.setAttribute("paging", paging);
 
