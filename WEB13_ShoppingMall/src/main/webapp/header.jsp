@@ -25,18 +25,18 @@
 			<ul>
 				<c:choose>
 					<c:when test="${empty loginUser}">
-					<li><a>LOGIN</a></li>
-					<li><a>JOIN</a></li>
+					<li><a href="shop.do?command=loginForm">LOGIN</a></li>
+					<li><a href="shop.do?command=contract">JOIN</a></li>
 				</c:when>
 				<c:otherwise>
 					<li>${loginUser.name}(${loginUser.id})</li>
-					<li><a>정보수정</a></li>
-					<li><a>LOGOUT</a></li>
+					<li><a href="shop.do?command=editForm">정보수정</a></li>
+					<li><a href="shop.do?command=loginout">LOGOUT</a></li>
 				</c:otherwise>
 				</c:choose>
-				<li><a>CART</a></li>
-				<li><a>MY PAGE</a></li>
-				<li><a>Q &amp; A</a></li>
+				<li><a href="shop.do?command=cartList">CART</a></li>
+				<li><a href="shop.do?command=mypage">MY PAGE</a></li>
+				<li><a href="shop.do?command=qnaList">Q &amp; A</a></li>
 			</ul>
 		</nav>
 		
@@ -46,7 +46,7 @@
 				<li><a href="shop.do?command=category&kind=2">Boots</a></li>
 				<li><a href="shop.do?command=category&kind=3">Sandals</a></li>
 				<li><a href="shop.do?command=category&kind=4">Sneakers</a></li>
-				<li><a href="shop.do?command=category&kind=5">Sleepers</a></li>
+				<li><a href="shop.do?command=category&kind=5">Slippers</a></li>
 				<li><a href="shop.do?command=category&kind=6">On Sale</a></li>
 			</ul>
 		</nav>

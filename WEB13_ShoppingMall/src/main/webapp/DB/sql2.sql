@@ -125,12 +125,15 @@ select * from
 select * from best_pro_view;
 
 
-alter table address add dong varchar2(20);
+alter table address add dong varchar2(100) not null;
 select * from ADDRESS;
 
 alter table address modify dong varchar2(50);
-alter table address modify dong varchar2(50) not null;
+alter table address modify dong varchar2(100) not null;
 delete from address;
+
+alter table member rename column useryn to useyn;
+select * from member;
 
 
 
