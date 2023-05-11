@@ -34,7 +34,7 @@ public class OrderInsertOneAction implements Action {
 		url="shop.do?command=orderList&oseq="+oseq;
 		}
 		//주문 추가 후 리턴된 oseq를 이용해서 shop.do?command=orderList&oseq=주문번호 로 이동
-		
+		    
 		response.sendRedirect(url);
 		
 	}
