@@ -12,7 +12,7 @@
 		
 		<fieldset><legend>Basic Info</legend>
 		<!-- id는 수정대상이 아니면서, submit할때 전송될 대상이므로, input type="text"로 하되 readonly로 설정해서 수정 금지시킴 -->
-			<label>User ID</label><input type="text" value="${loginUser.id}" readonly><br>
+			<label>User ID</label><input type="text" name="id" value="${loginUser.id}" readonly><br>
 			<label>Password</label><input type="password" name="pwd"><br>
 			<label>Retype Password</label><input type="password" name="pwdCheck"><br>
 			<label>Name</label><input type="text" name="name" value="${loginUser.name}"><br>
