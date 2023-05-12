@@ -13,6 +13,8 @@ import com.ezen.shop.controller.action.member.joinAction;
 import com.ezen.shop.controller.action.mypage.CartDeleteAction;
 import com.ezen.shop.controller.action.mypage.CartInsertAction;
 import com.ezen.shop.controller.action.mypage.CartListAction;
+import com.ezen.shop.controller.action.mypage.MyPageAction;
+import com.ezen.shop.controller.action.mypage.OrderAllAction;
 import com.ezen.shop.controller.action.mypage.OrderInsertAction;
 import com.ezen.shop.controller.action.mypage.OrderInsertOneAction;
 import com.ezen.shop.controller.action.mypage.OrderListAction;
@@ -52,7 +54,8 @@ public class ActionFactory {
 		else if(command.equals("orderInsert")) ac=new OrderInsertAction();
 		else if(command.equals("orderList")) ac=new OrderListAction();
 		else if(command.equals("orderInsertOne")) ac=new OrderInsertOneAction();
-//		else if(command.equals("mypage")) ac=new MyPageAction();
+		else if(command.equals("mypage")) ac=new MyPageAction();
+		else if(command.equals("orderAll")) ac=new OrderAllAction();
 //		else if(command.equals("qnaList")) ac=new QnaListAction();
 		
 		return ac;
