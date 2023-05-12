@@ -118,5 +118,18 @@ public class MemberDao {
 			e.printStackTrace();
 		}finally {Dbman.close(con, pstmt, rs);}
 	}
-	
+
+
+	public void deleteMember(String id) {
+
+		con=Dbman.getConnection();
+		String sql="update member set useyn='N' where id=?";
+		try {
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {Dbman.close(con, pstmt, rs);}
+	}
 }

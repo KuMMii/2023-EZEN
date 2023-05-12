@@ -22,12 +22,11 @@ public class joinAction implements Action {
 		mvo.setId(request.getParameter("id"));
 		mvo.setPwd(request.getParameter("pwd"));
 		mvo.setName(request.getParameter("name"));
-		mvo.setEmail(request.getParameter("email"));
 		mvo.setPhone(request.getParameter("phone"));
 		mvo.setZip_num(request.getParameter("zip_num"));
 		mvo.setAddress1(request.getParameter("address1"));
 		mvo.setAddress2(request.getParameter("address2"));
-		mvo.setPhone(request.getParameter("phone"));
+		mvo.setEmail(request.getParameter("email"));
 		
 		int result=mdao.insertMember(mvo);
 		String message="";

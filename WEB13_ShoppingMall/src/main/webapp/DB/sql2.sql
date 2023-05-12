@@ -136,10 +136,11 @@ alter table member rename column useryn to useyn;
 select * from member;
 
 
+alter table member modify email varchar2(40);
 
 
-
-
+update order_detail set result='2' where oseq=7;
+update order_detail set result='2' where oseq=5;
 
 
 

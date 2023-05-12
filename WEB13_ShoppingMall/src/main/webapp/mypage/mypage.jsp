@@ -14,8 +14,8 @@
 			<tr>
 				<td><fmt:formatDate value="${orderVO.indate}" type="date"/></td>
 				<td>${orderVO.oseq}</td><td>${orderVO.pname}</td>
-				<td><fmt:formatNumber value="${orderVO.price2}" type="currency"/></td>
-				<td><a href="shop.do?command=orderDetail&oseq=${orderVO.oseq}">상세</a></td>
+				<td><fmt:setLocale value="ko_KR"/><fmt:formatNumber value="${orderVO.price2}" type="currency"/></td>
+				<td><a href="shop.do?command=orderDetail&oseq=${orderVO.oseq}">주문상세</a></td>
 				<td>
 					<c:if test="${orderVO.result=='1'}">미처리</c:if>
 					<c:if test="${orderVO.result=='2'}">완료</c:if>
