@@ -1,6 +1,7 @@
 package com.ezen.shop.controller.action;
 
 import com.ezen.shop.controller.action.member.ContractAction;
+import com.ezen.shop.controller.action.member.DeleteMemberAction;
 import com.ezen.shop.controller.action.member.EditFormAction;
 import com.ezen.shop.controller.action.member.FindZipNumAction;
 import com.ezen.shop.controller.action.member.IdCheckFormAction;
@@ -13,11 +14,15 @@ import com.ezen.shop.controller.action.member.joinAction;
 import com.ezen.shop.controller.action.mypage.CartDeleteAction;
 import com.ezen.shop.controller.action.mypage.CartInsertAction;
 import com.ezen.shop.controller.action.mypage.CartListAction;
+import com.ezen.shop.controller.action.mypage.MyPageAction;
+import com.ezen.shop.controller.action.mypage.OrderAllAction;
+import com.ezen.shop.controller.action.mypage.OrderDetailAction;
 import com.ezen.shop.controller.action.mypage.OrderInsertAction;
 import com.ezen.shop.controller.action.mypage.OrderInsertOneAction;
 import com.ezen.shop.controller.action.mypage.OrderListAction;
 import com.ezen.shop.controller.action.product.CategoryAction;
 import com.ezen.shop.controller.action.product.ProductDetailAction;
+import com.ezen.shop.controller.action.qna.QnaListAction;
 
 public class ActionFactory {
 
@@ -52,8 +57,14 @@ public class ActionFactory {
 		else if(command.equals("orderInsert")) ac=new OrderInsertAction();
 		else if(command.equals("orderList")) ac=new OrderListAction();
 		else if(command.equals("orderInsertOne")) ac=new OrderInsertOneAction();
-//		else if(command.equals("mypage")) ac=new MyPageAction();
-//		else if(command.equals("qnaList")) ac=new QnaListAction();
+		else if(command.equals("mypage")) ac=new MyPageAction();
+		else if(command.equals("orderAll")) ac=new OrderAllAction();
+		else if(command.equals("orderDetail")) ac=new OrderDetailAction();
+		else if(command.equals("deleteMember")) ac=new DeleteMemberAction();
+		
+		//qna
+		else if(command.equals("qnaList")) ac=new QnaListAction();
+//		else if(command.equals("qnaWriteForm")) ac=new QnaWriteFormAction();
 		
 		return ac;
 	}

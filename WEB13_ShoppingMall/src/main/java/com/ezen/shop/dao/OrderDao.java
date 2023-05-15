@@ -128,4 +128,55 @@ public class OrderDao {
 		return oseq;
 	}
 	
+	public void deleteCart(ArrayList<CartVO> list) {
+	      con = Dbman.getConnection();
+	      String sql="delete from cart where cseq=?";
+	      try {
+	         for(CartVO cvo : list) {
+	            pstmt = con.prepareStatement(sql);
+	            pstmt.setInt(1, cvo.getCseq());
+	            pstmt.executeUpdate();
+	            pstmt.close();
+	         }
+	      } catch (SQLException e) { e.printStackTrace();
+	      } finally { Dbman.close(con, pstmt, rs);
+	      }
+	   }
+	public ArrayList<Integer> selectOseqOrderIng(String id) {
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		
+		String sql="select distinct oseq from order_view where id=? and result='1' order by oseq desc";
+		con=Dbman.getConnection();
+		try {
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs=pstmt.executeQuery();
+			while(rs.next()) {
+				list.add(rs.getInt("oseq"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {Dbman.close(con, pstmt, rs);}
+		return list;
+	}
+	
+	public ArrayList<Integer> selectOseqOrderAll(String id) {
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		
+		String sql="select oseq from (select distinct oseq, result from"
+				+ "(select*from order_view where id=?) order by result, oseq desc)";
+		con=Dbman.getConnection();
+		try {
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs=pstmt.executeQuery();
+			while(rs.next()) {
+				list.add(rs.getInt("oseq"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {Dbman.close(con, pstmt, rs);}
+		return list;
+	}
+	
 }

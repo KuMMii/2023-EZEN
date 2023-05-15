@@ -12,7 +12,7 @@
 			<a href="shop.do?command=productDetail&pseq=${productVO.pseq }">
 				<img src="product_images/${productVO.image }" />
 				<h3>${productVO.name }</h3>
-				<p><fmt:formatNumber value="${productVO.price2}" type="currency"/></p>
+				<p><fmt:setLocale value="ko_KR"/><fmt:formatNumber value="${productVO.price2}" type="currency"/></p>
 			</a>
 		</div>
 	</c:forEach>

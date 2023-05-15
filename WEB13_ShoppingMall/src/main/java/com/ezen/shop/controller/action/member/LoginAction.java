@@ -27,6 +27,9 @@ public class LoginAction implements Action {
 		
 		if(mvo==null) 
 			request.setAttribute("message", "없는 아이디입니다.");
+		else if(mvo.getUseyn().equals("N"))
+			request.setAttribute("message", "회원가입 후 탈퇴이력이 있습니다. 관리자에게 문의하세요");
+		//필요에 따라 url을 변경해서 별도의 페이지로 연결되어 재가입을 진행함.
 		else if(mvo.getPwd()==null)
 			request.setAttribute("message", "DB오류. 관리자에게 문의하세요");
 		else if(!mvo.getPwd().equals(pwd))

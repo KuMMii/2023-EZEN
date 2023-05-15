@@ -19,14 +19,14 @@
 						<tr>
 							<td><h3>${cartVO.pname}</h3></td>
 							<td>${cartVO.quantity}</td>
-							<td><fmt:formatNumber value="${cartVO.price2*cartVO.quantity}" type="currency"/></td>
+							<td><fmt:setLocale value="ko_KR"/><fmt:formatNumber value="${cartVO.price2*cartVO.quantity}" type="currency"/></td>
 							<td><fmt:formatDate value="${cartVO.indate}"  type="date" /></td>
 							<td><input type="checkbox" name="cseq" value="${cartVO.cseq}"></td>
 						</tr>
 					</c:forEach>
 					<tr>
 						<th colspan="2">총 액</th>
-						<th colspan="2"><fmt:formatNumber value="${totalPrice }" type="currency"/></th>
+						<th colspan="2"><fmt:setLocale value="ko_KR"/><fmt:formatNumber value="${totalPrice }" type="currency"/></th>
 						<th><a href="#" onClick="go_cart_delete();"><h3>삭제하기</h3></a></th>
 					</tr>
 				</table>

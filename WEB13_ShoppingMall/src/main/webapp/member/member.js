@@ -1,4 +1,9 @@
-function loginCheck(){
+/**
+ * 
+ */
+ 
+ 
+ function loginCheck(){
 	if(document.loginFrm.id.value==""){
 		alert("아이디는 필수 입력사항입니다.");
 		document.loginFrm.id.focus();
@@ -104,6 +109,16 @@ function go_update(){
 		document.joinForm.submit();
 	}
 }
+
+function withdrawalConfirm(){
+	var a=confirm("정말로 탈퇴하시겠습니까?");
+	if(a){
+		location.href='shop.do?command=deleteMember';
+	}
+}
+	
+	
+
 
 
 

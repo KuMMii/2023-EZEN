@@ -18,6 +18,7 @@
 			<input type="button" value="ID / PW 찾기" class="submit" >
 		</div><br><br>
 		<div>&nbsp;&nbsp;&nbsp;${param.message}</div>
+		<div>&nbsp;&nbsp;&nbsp;${message}</div>
 	</form>
 </article>
 

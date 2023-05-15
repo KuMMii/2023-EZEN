@@ -12,12 +12,12 @@
 		<tr><td>
 			<a href="shop.do?command=productDetail&pseq=${orderVO.pseq }"></a>
 			<h3>${orderVO.pname}</h3></td><td>${orderVO.quantity}</td>
-			<td><fmt:formatNumber value="${orderVO.price2*orderVO.quantity}" type="currency"/></td>
+			<td><fmt:setLocale value="ko_KR"/><fmt:formatNumber value="${orderVO.price2*orderVO.quantity}" type="currency"/></td>
 			<td><fmt:formatDate value="${orderVO.indate}" type="date"/></td>
 			<td> 처리 진행 중 </td></tr>
 	</c:forEach>
 	<tr><th colspan="2">총 액</th>
-	<th colspan="2"><fmt:formatNumber value="${totalPrice}" type="currency"/></th>
+	<th colspan="2"><fmt:setLocale value="ko_KR"/><fmt:formatNumber value="${totalPrice}" type="currency"/></th>
 	<th> 주문처리가 완료되었습니다. </th>
 </table>
 </form>
