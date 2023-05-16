@@ -5,12 +5,18 @@ import com.ezen.shop.controller.action.IndexAction;
 import com.ezen.shop.controller.action.admin.AdminAction;
 import com.ezen.shop.controller.action.admin.AdminLoginAction;
 import com.ezen.shop.controller.action.admin.AdminLogoutAction;
+import com.ezen.shop.controller.action.admin.AdminMemberListAction;
+import com.ezen.shop.controller.action.admin.AdminOrderListAction;
+import com.ezen.shop.controller.action.admin.AdminOrderSaveAction;
 import com.ezen.shop.controller.action.admin.AdminProductDetailAction;
 import com.ezen.shop.controller.action.admin.AdminProductListAction;
 import com.ezen.shop.controller.action.admin.AdminProductUpdateAction;
 import com.ezen.shop.controller.action.admin.AdminProductUpdateFormAction;
 import com.ezen.shop.controller.action.admin.AdminProductWriteAction;
 import com.ezen.shop.controller.action.admin.AdminProductWriteFormAction;
+import com.ezen.shop.controller.action.admin.AdminQnaDetailAction;
+import com.ezen.shop.controller.action.admin.AdminQnaListAction;
+import com.ezen.shop.controller.action.admin.AdminQnaRepSaveAction;
 import com.ezen.shop.controller.action.member.ContractAction;
 import com.ezen.shop.controller.action.member.DeleteMemberAction;
 import com.ezen.shop.controller.action.member.EditFormAction;
@@ -88,6 +94,12 @@ public class ActionFactory {
 		else if( command.equals("adminProductWrite") ) ac = new AdminProductWriteAction();
 		else if( command.equals("adminProductUpdateForm") ) ac = new AdminProductUpdateFormAction();
 		else if( command.equals("adminProductUpdate") ) ac = new AdminProductUpdateAction();
+		else if( command.equals("adminOrderList") ) ac = new AdminOrderListAction();
+		else if( command.equals("adminOrderSave") ) ac = new AdminOrderSaveAction();
+		else if( command.equals("adminMemberList") ) ac = new AdminMemberListAction();
+		else if( command.equals("adminQnaList") ) ac = new AdminQnaListAction();
+		else if( command.equals("adminQnaDetail") ) ac = new AdminQnaDetailAction();
+		else if( command.equals("adminQnaRepSave") ) ac = new AdminQnaRepSaveAction();
 		
 		return ac;
 	}

@@ -100,8 +100,22 @@ public class QnaDao {
 		} finally {  Dbman.close(con, pstmt, rs);  }
 		
 	}
-	
-}
+
+	public void updateQna(QnaVO qvo) {
+		con=Dbman.getConnection();
+		String sql="update qna set reply=?, rep='2' where qseq=?";
+		try {
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, qvo.getReply());
+			pstmt.setInt(2, qvo.getQseq());
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {Dbman.close(con, pstmt, rs);}
+	}
+		
+	}
+
 
 
 
