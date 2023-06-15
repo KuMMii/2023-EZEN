@@ -26,13 +26,13 @@
 		select*from bbs where id=#{param1}
 	</select>
 	
-	<select id="update" parameterType="com.ezen.g12.dto.BbsDto">
+	<update id="update" parameterType="com.ezen.g12.dto.BbsDto">
 		update bbs set writer=#{writer}, title=#{title}, content=#{content} where id=#{id}
-	</select>
+	</update>
 	
-	<select id="delete" resultType="com.ezen.g12.dto.BbsDto">
+	<delete id="delete"> <!-- 얘는 왜 resultType을 안쓸까? -->
 		delete from bbs where id=#{param1}
-	</select>
+	</delete>
 	
 	
 	

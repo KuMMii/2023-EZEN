@@ -54,7 +54,7 @@ public class BbsController {
 	}
 	
 	@RequestMapping("/updateForm")
-	public ModelAndView updateForm(@RequestParam("id") int id, Model model) {
+	public ModelAndView updateForm(@RequestParam("id") int id/*, Model model  ModelAndView를 쓰기때매 필요없음*/) {
 		ModelAndView mav= new ModelAndView();
 		mav.addObject("dto",bdao.view(id));
 		mav.setViewName("updateForm");
@@ -63,9 +63,8 @@ public class BbsController {
 	
 	@PostMapping("/update")
 	public String update(BbsDto bbsdto) {
-		
 		bdao.update(bbsdto);
-		
+		//bdao.update(bbsdto.getWriter(),bbsdto.getTitle(),bbsdto.getContent(),bbsdto.getId());
 		return "redirect:/";
 	}
 	
