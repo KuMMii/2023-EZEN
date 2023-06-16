@@ -1,19 +1,25 @@
 package com.ezen.g14_Board.controller;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ezen.g14_Board.dto.BoardVO;
 import com.ezen.g14_Board.dto.Paging;
 import com.ezen.g14_Board.service.BoardService;
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 @Controller
 public class BoardController {
@@ -27,7 +33,7 @@ public class BoardController {
       
       HttpSession session = request.getSession();
       if( session.getAttribute("loginUser") == null)   
-         mav.setViewName("loginform");
+         mav.setViewName("member/loginForm");
       else {
     	  
     	  /*
@@ -59,4 +65,72 @@ public class BoardController {
       }
       return mav;
    }
+	
+	@RequestMapping("/boardView")
+	public ModelAndView boardView(@RequestParam("num") int num) {
+		ModelAndView mav=new ModelAndView();
+		
+		HashMap<String,Object>result=bs.boardView(num);
+		mav.addObject("board",result.get("board"));
+		mav.addObject("replyList",result.get("replyList"));
+		
+		
+		mav.setViewName("board/boardView");
+		return mav;
+	}
+	
+	
+	
+	@RequestMapping("/boardWriteForm")
+	public String write_form(HttpServletRequest request) {
+		String url="board/boardWriteForm";
+		HttpSession session=request.getSession();
+		if(session.getAttribute("loginUser")==null)url="member/loginForm";
+		
+		return url;
+	}
+	
+	@Autowired
+	ServletContext context;
+	
+	@RequestMapping(value="/boardWrite",method=RequestMethod.POST)
+	public String boardWrite(HttpServletRequest request) {
+		
+		
+		/*
+		HttpSession session=request.getSession();
+		ServletContext context=session.getServletContext();
+		String path=context.getRealPath("upload");
+		*/
+		String path=context.getRealPath("/upload");
+		
+		BoardVO bvo=new BoardVO();
+		try {
+			MultipartRequest multi=new MultipartRequest(request,path,5*1024*1024,new DefaultFileRenamePolicy());
+			
+			bvo.setUserid(multi.getParameter("userid"));
+			bvo.setPass(multi.getParameter("pass"));
+			bvo.setTitle(multi.getParameter("title"));
+			bvo.setEmail(multi.getParameter("email"));
+			bvo.setContent(multi.getParameter("content"));
+			bvo.setImgfilename(multi.getFilesystemName("imgfilename"));
+			if(multi.getFilesystemName("imgfilename")==null) bvo.setImgfilename("");
+			else bvo.setImgfilename(multi.getFilesystemName("imgfilename"));
+			bs.insertBoard(bvo);
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		return "redirect:/main";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

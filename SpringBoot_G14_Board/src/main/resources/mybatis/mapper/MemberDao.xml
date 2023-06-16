@@ -6,7 +6,15 @@
 	<select id="getMember" resultType="com.ezen.g14_Board.dto.MemberVO">
 		select * from member1 where userid=#{param1}
 	</select>
+	
+	<insert id="insertMember" parameterType="com.ezen.g14_Board.dto.MemberVO">
+		insert into member1(userid, name, pwd, email,phone,provider)
+		 values(#{userid},#{name},#{pwd},#{email},#{phone},#{provider})
+	</insert>
 
+	<update id="updateMember" parameterType="com.ezen.g14_Board.dto.MemberVO" >
+		update member1 set name=#{name}, pwd=#{pwd}, email=#{email}, phone=#{phone} where userid=#{userid}
+	</update>
 </mapper>
 
 

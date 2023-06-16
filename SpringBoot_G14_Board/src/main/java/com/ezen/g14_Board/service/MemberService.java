@@ -1,5 +1,7 @@
 package com.ezen.g14_Board.service;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,5 +19,15 @@ public class MemberService {
 		//return mvo
 		return mdao.getMember(userid);
 	}
+
+	public void insertMember(MemberVO mvo) {
+		mdao.insertMember(mvo);
+		
+	}
+
+	public void updateMember(@Valid MemberVO membervo) {
+		mdao.updateMember(membervo);
+	}
+
 	
 }

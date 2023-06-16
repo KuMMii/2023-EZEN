@@ -12,8 +12,13 @@ create table member1(
 
 insert into member1 values('홍길동','scott', '1234', 'scott@abc.com', '010-1234-1234');
 
+alter table member1 add provider varchar2(30);
 
 select * from member1;
+
+alter table member drop column provider;
+
+update MEMBER1 set provider='board' where userid='scott';
 
 
 create table board(
