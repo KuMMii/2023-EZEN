@@ -20,6 +20,7 @@ alter table member drop column provider;
 
 update MEMBER1 set provider='board' where userid='scott';
 
+alter table board modify title varchar2(100);
 
 create table board(
 	num number(5) primary key,

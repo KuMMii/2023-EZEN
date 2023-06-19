@@ -2,6 +2,8 @@ package com.ezen.g14_Board.dao;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.apache.ibatis.annotations.Mapper;
 
 import com.ezen.g14_Board.dto.BoardVO;
@@ -24,6 +26,15 @@ public interface IBoardDao {
 	List<ReplyVO> selectReply(int num);
 
 	void insertBoard(BoardVO bvo);
+
+	void insertReply(ReplyVO replyvo);
+
+	void deleteReply(int num);
+
+	void updateBoard(@Valid BoardVO boardvo);
+
+	void deleteBoard(int num);
+
 
 
 

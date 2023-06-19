@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -73,6 +74,37 @@ public HashMap<String, Object> boardView(int num) {
 public void insertBoard(BoardVO bvo) {
 
 	bdao.insertBoard(bvo);
+}
+
+public void insertReply(ReplyVO replyvo) {
+	bdao.insertReply(replyvo);
+}
+
+public HashMap<String, Object> boardViewWithoutCount(int num) {
+	HashMap<String, Object> result=new HashMap<String, Object>();
+    BoardVO bvo = bdao.getBoard(num);
+    List<ReplyVO> list = bdao.selectReply( num );
+    result.put("board", bvo);
+    result.put("replyList", list);
+
+    return result;
+}
+
+public void deleteReply(int num) {
+	bdao.deleteReply(num);
+	
+}
+
+public BoardVO getBoard(int num) {
+	return bdao.getBoard(num);
+}
+
+public void updateBoard(@Valid BoardVO boardvo) {
+	bdao.updateBoard(boardvo);
+}
+
+public void removeBoard(int num) {
+	bdao.deleteBoard(num);
 }
    
 }

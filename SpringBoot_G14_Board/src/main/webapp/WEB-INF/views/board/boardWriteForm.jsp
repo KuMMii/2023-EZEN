@@ -12,8 +12,8 @@
 <body>
 <div id="wrap" align="center">
    <h1>게시글 등록</h1>
-   <form name="frm" method="post" action="boardWrite"  enctype="multipart/form-data">
-<!--    <form name="frm" method="post" action="boardWrite"> -->
+<!--    <form name="frm" method="post" action="boardWrite"  enctype="multipart/form-data"> -->
+   <form name="frm" method="post" action="boardWrite">
       <table>
          <tr><th>작성자</th><td>${loginUser.userid} 
             <input type="hidden" name="userid" value="${loginUser.userid}"></td></tr>
@@ -27,7 +27,11 @@
             <td><textarea cols="70" rows="15" name="content" >${dto.content}</textarea></td></tr>
          <tr><th>이미지</th>
             <td>
-               <input type="file" name="imgfilename">
+<!--                <input type="file" name="imgfilename"> -->
+					<input type="button" value="파일 선택" onClick="selectimg();">
+					<div id="image" style="float:left"></div>
+						<img src="" id="previewimg" style="width: 150px; display:none;">
+						<input type="hidden" name="imgfilename">
             </td>
          </tr>
       </table><br>   <br>

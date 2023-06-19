@@ -27,7 +27,7 @@
             <td>
                <a href="boardView?num=${board.num}">${board.title}</a>
                <c:if test="${board.replycnt > 0}">
-                  &npsp;<span style="color:red;font-weight:bold;"> [${board.replycnt}] </span>
+                  &nbsp;<span style="color:red;font-weight:bold;"> [${board.replycnt}] </span>
                </c:if>
             </td>
             <td align="center">${board.userid}</td>

@@ -27,6 +27,32 @@ function boardCheck(){
 	}else{
 		return true;
 	}
+}	
+	function selectimg(){
+		var opt="toolbar=no, menubar=no, resizable=no, width=450, height=200";
+		window.open('selectimg','selectimg',opt);
+	}
+	
+	
+	function selectedimage(){
+		document.frm.submit();
+		
+	}
+	
+	
+	
+	function reply_check(){
+		if(document.frm2.content.value==""){
+			alert("댓글 내용을 입력하세요");
+			return false;
+		}
+		return true;
+	}
+	
+	
+	function open_win(url,name){
+		window.open(url,name,"toolbar=no, menubar=no, scrollbars=no, resizable=no, width=500, height=230");
+	}
 	
 	
 	
@@ -35,4 +61,5 @@ function boardCheck(){
 	
 	
 	
-}
+	
+	

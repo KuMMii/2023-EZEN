@@ -33,7 +33,7 @@
    </table><br> <br>
    <input type="button" value="게시글 리스트" onclick="location.href='main'">
    <input type="button" value="게시글 수정" onclick="open_win('boardEditForm?num=${board.num}', 'update')">
-   <input type="button" value="게시글 삭제" onclick="open_win('boardDeleteForm?num=${board.num}', 'delete')">
+   <input type="button" value="게시글 삭제" onclick="open_win('boardEditForm?num=${board.num}', 'delete')">
 </div><br><br>
 
 
