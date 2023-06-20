@@ -13,4 +13,8 @@ public interface IProductDao {
 
 	List<ProductVO> getBestList();
 
+	List<ProductVO> getKindList(String kind);
+
+	ProductVO getProduct(String pseq);
+
 }

@@ -36,7 +36,7 @@
                   <li><a href="contract">JOIN</a></li>
                </c:when>
                 <c:otherwise>
-                      <li style="color:blue;font-weight:bold;font-size:110%;">
+                      <li style="color:blue;font-weight:bold;font-size:100%;">
                          ${loginUser.name}(${loginUser.id})</li>
                       <li><a href="memberEditForm">정보수정</a></li>
                       <li><a href="logout">LOGOUT</a></li>
@@ -44,18 +44,18 @@
             </c:choose>
             <li><a href="cartList">CART</a></li>
             <li><a href="myPage">MY PAGE</a></li>
-             <li ><a href="qnaList">Q&amp;A(1:1)</a></li>
+             <li ><a href="qnaList">고객센터</a></li>
              <!-- <li ><a href="admin">admin</a></li> -->
          </ul>
       </nav>
       <nav id="catagory_menu"> <!-- catagory menu -->
          <ul>
-            <li><a href="catagory?kind=1">Heels</a></li>
-            <li><a href="catagory?kind=2">Boots</a></li>
-            <li><a href="catagory?kind=3">Sandals</a></li>
-            <li><a href="catagory?kind=4">Sleeper</a></li>
-            <li><a href="catagory?kind=5">Sneakers</a></li>   
-            <li><a href="catagory?kind=6">On Sale</a></li>
+            <li><a href="category?kind=1">Heels</a></li>
+            <li><a href="category?kind=2">Boots</a></li>
+            <li><a href="category?kind=3">Sandals</a></li>
+            <li><a href="category?kind=4">Slippers</a></li>
+            <li><a href="category?kind=5">Sneakers</a></li>   
+            <li><a href="category?kind=6">On Sale</a></li>
          </ul>
       </nav>
       <div class="clear"></div><hr>
