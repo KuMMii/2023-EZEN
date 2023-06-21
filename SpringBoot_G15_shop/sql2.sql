@@ -175,4 +175,9 @@ select * from product order by pseq desc;
 alter table member add provider varchar2(30);
 
 
+alter table qna add pass varchar2(30);
+alter table qna add passCheck char(1) default 'N';
+update qna set passCheck='N';
+select*from qna;
+
 

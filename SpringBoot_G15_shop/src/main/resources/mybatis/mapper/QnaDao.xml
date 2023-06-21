@@ -4,6 +4,9 @@
 
 <mapper namespace="com.ezen.g15.dao.IQnaDao">
 
+	<select id="listQna" resultType="com.ezen.g15.dto.QnaVO">
+		select * from qna order by qseq desc
+	</select>
 
 
 
