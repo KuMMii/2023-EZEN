@@ -23,6 +23,9 @@
 		
 	</update>
 
+	<update id="withdrawalMember">
+		update member set useyn='N' where id=#{param1}
+	</update>
 
 
 

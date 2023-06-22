@@ -15,6 +15,14 @@ public class QnaService {
 	IQnaDao qdao;
 
 	public List<QnaVO> listQna() {
-		return qdao.listQna();
+		return qdao.listQns();
+	}
+
+	public QnaVO getQna(int qseq) {
+		return qdao.getQna( qseq );
+	}
+
+	public void insertQna(QnaVO qnavo) {
+		qdao.insertQna( qnavo);
 	}
 }

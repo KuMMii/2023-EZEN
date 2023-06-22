@@ -17,6 +17,8 @@ public interface IMemberDao {
 
 	void updateMember(@Valid MemberVO membervo);
 
+	void withdrawalMember(String id);
+
 
 	
 }

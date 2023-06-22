@@ -35,7 +35,8 @@
 	
 	<select id="selectSeqOrderIng" resultType="int">
 	<!-- int는 integer _int는 int -->
-		select distinct oseq from order_view where id=#{param1} and result='1' order by oseq desc
+		select distinct oseq from order_view where id=#{param1} and (result='1' or result='2' or result='3')
+		 order by oseq desc
 	</select>
 	
 	<select id="getFinalListAll" resultType="int">
@@ -43,6 +44,9 @@
 		select distinct oseq from order_view where id=#{param1} order by oseq desc
 	</select>
 
+	<update id="updateOrderEnd">
+		update order_detail set result='4' where odseq=#{param1}
+	</update>
 
 
 </mapper>

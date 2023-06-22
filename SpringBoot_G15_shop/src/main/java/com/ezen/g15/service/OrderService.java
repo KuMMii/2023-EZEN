@@ -136,4 +136,8 @@ public class OrderService {
 		return orderList;
 	}
 
+	public void updateOrderEnd(int odseq) {
+		odao.updateOrderEnd(odseq);
+	}
+
 }

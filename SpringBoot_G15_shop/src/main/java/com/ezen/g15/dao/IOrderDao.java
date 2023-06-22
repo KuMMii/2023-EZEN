@@ -28,4 +28,6 @@ public interface IOrderDao {
 
 	List<Integer> getFinalListAll(String id);
 
+	void updateOrderEnd(int odseq);
+
 }

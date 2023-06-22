@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ezen.g15.dto.ProductVO;
+import com.ezen.g15.service.AdminService;
 import com.ezen.g15.service.ProductService;
 
 @Controller
@@ -19,12 +20,16 @@ public class ProductController {
 	@Autowired
 	ProductService ps;
 	
+	@Autowired
+	AdminService as;
+	
 	@RequestMapping("/")
 	public String main(Model model) {
 		HashMap<String, Object> result=ps.getBestNewList();
 		List<ProductVO> list=(List<ProductVO>)result.get("newProductList");
 		model.addAttribute("newProductList", list);
 		model.addAttribute("bestProductList", (List<ProductVO>)result.get("bestProductList"));
+		model.addAttribute("bannerList",ps.getBannerList());
 		return "index";
 	}
 	
@@ -38,7 +43,7 @@ public class ProductController {
 	}
 	
 	@RequestMapping("/productDetail")
-	public ModelAndView product_detail(@RequestParam("pseq") String pseq) {
+	public ModelAndView product_detail(@RequestParam("pseq") int pseq) {
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("productVO",ps.getProduct(pseq));
 		mav.setViewName("product/productDetail");

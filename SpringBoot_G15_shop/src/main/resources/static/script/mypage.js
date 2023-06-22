@@ -42,5 +42,10 @@ function go_order(){
 }
 
 
+function orderEnd(oseq,odseq){
+	//oseq는 orderDetail로 되돌아오기 위한 주문번호, odseq는 result를 변경하기 위한 주문 상세번호
+	
+	location.href="orderEnd?odseq="+odseq+"&oseq="+oseq;
+}
 
 

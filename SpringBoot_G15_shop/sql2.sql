@@ -65,6 +65,7 @@ values( product_seq.nextval,  '스니커즈', '5', 15000, 20000, 5000,'활동성
 update product set useyn=upper(useyn)
 update product set bestyn=upper(bestyn)
 
+select * from product;
 
 -- 카트 추가
 select * from cart;
@@ -179,5 +180,36 @@ alter table qna add pass varchar2(30);
 alter table qna add passCheck char(1) default 'N';
 update qna set passCheck='N';
 select*from qna;
+
+
+
+
+
+create table banner(
+	bseq number(5),
+	subject varchar2(100),
+	order_seq number(3) default 1,
+	useyn char(1) default 'Y',
+	indate date default sysdate,
+	primary key(bseq)
+);
+
+create sequence banner_bseq start with 1;
+
+alter table banner add image varchar2(100);
+
+select * from BANNER;
+
+
+
+
+
+
+
+
+
+
+
+
 
 
